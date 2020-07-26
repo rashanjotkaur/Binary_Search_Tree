@@ -5,7 +5,6 @@ void findNo(struct Node *root,int &count){
     findNo(root->left,count);
     count++;
     findNo(root->right,count);
-    
 }
 void median(Node *root,float &res1,float &res2,int n,int &k){
     if(root==NULL)

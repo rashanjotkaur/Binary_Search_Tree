@@ -1,38 +1,32 @@
 void MorrisTraversal(struct Node* root){ 
-    struct tNode *current, *pre; 
-  
+    struct tNode *curr,*pre;
     if (root == NULL) 
         return; 
   
-    current = root; 
-    while (current != NULL) { 
-  
-        if (current->left == NULL) { 
-            printf("%d ", current->data); 
-            current = current->right; 
+    curr = root; 
+    while(curr!=NULL){
+        if (curr->left==NULL) { 
+            cout<<curr->data<<" "; 
+            curr = curr->right; 
         } 
         else { 
-  
             /* Find the inorder predecessor of current */
-            pre = current->left; 
-            while (pre->right != NULL && pre->right != current) 
+            pre = curr->left; 
+            while (pre->right != NULL && pre->right != curr) 
                 pre = pre->right; 
   
-            /* Make current as the right child of its inorder  
-               predecessor */
+            /* Make current as the right child of its inorder predecessor */
             if (pre->right == NULL) { 
-                pre->right = current; 
-                current = current->left; 
+                pre->right = curr; 
+                curr = curr->left; 
             } 
   
-            /* Revert the changes made in the 'if' part to restore  
-               the original tree i.e., fix the right child 
-               of predecessor */
+            /* Revert the changes made in the 'if' part to restore the original tree i.e., fix the right child of predecessor */
             else { 
                 pre->right = NULL; 
-                printf("%d ", current->data); 
-                current = current->right; 
-            } /* End of if condition pre->right == NULL */
-        } /* End of if condition current->left == NULL*/
-    } /* End of while */
+                cout<<curr->data<<endl; 
+                curr = curr->right; 
+            } 
+        } 
+    } 
 } 

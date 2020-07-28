@@ -22,3 +22,20 @@ bool isDeadEnd(Node *root){
     }
     return  false;
 }
+
+// Method 2-O(1)
+bool traverse(struct Node *root,int mini,int maxi){
+    if(root==NULL)
+        return false;
+    if(mini==maxi)
+        return true;
+    bool l=traverse(root->left,mini,root->data-1);
+    bool r=traverse(root->right,root->data+1,maxi);
+    return l || r;
+}
+bool isDeadEnd(Node *root){
+    if(root==NULL)
+        return false;
+    int mini=1,maxi=INT_MAX;
+    return traverse(root,mini,maxi);
+}

@@ -1,4 +1,4 @@
-https://practice.geeksforgeeks.org/problems/find-the-closest-element-in-bst/1/
+// https://practice.geeksforgeeks.org/problems/find-the-closest-element-in-bst/1/
 int findceil(struct Node *root,int k){
     struct Node *curr=root;
     int val=-1;
